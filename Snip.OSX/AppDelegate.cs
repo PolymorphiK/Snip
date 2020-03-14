@@ -1,16 +1,12 @@
-﻿using AppKit;
-using Foundation;
+﻿namespace Snip.OSX {
+	using AppKit;
+	using Foundation;
 
-namespace Snip.OSX {
-	using System.Runtime.CompilerServices;
 	[Register("AppDelegate")]
 	public class AppDelegate : NSApplicationDelegate {
 		NSStatusItem item;
-		bool iTunes;
 
-		public AppDelegate() {
-
-		}
+		public AppDelegate() { }
 
 		public override void DidFinishLaunching(NSNotification notification) {
 			// Insert code here to initialize your application
@@ -18,16 +14,13 @@ namespace Snip.OSX {
 
 			this.item = statusBar.CreateStatusItem(NSStatusItemLength.Variable);
 
-			this.item.Button.Image = new NSImage("Snip16.png");
-			this.item.ToolTip = "CMD + Click to quit";
+			this.item.Button.Image = new NSImage("system-tray-icons/Snip.png");
 			item.Action = new ObjCRuntime.Selector("itemClicked");
 			item.Target = this;
 
-			NSMenu menu = new NSMenu("Title");
+			var snipMenu = new Views.SystemStatusbar.SnipMenu();
 
-			menu.AddItem(new NSMenuItem("Item 1", new System.EventHandler((o, e) => { this.itemClicked(); })));
-
-			this.item.Menu = menu;
+			this.item.Menu = snipMenu;
 		}
 
 		public override void WillTerminate(NSNotification notification) {
