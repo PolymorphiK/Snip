@@ -18,9 +18,17 @@
 			this.spotify.Image = new NSImage(string.Format("{0}/{1}", SnipMenu.Location, "Spotify.png"));
 			this.vlc.Image = new NSImage(string.Format("{0}/{1}", SnipMenu.Location, "VLC.png"));
 
+			this.AddItem(new NSMenuItem("Snip v1.0.0"));
+
+			this.AddItem(NSMenuItem.SeparatorItem);
+
+			this.AddItem(new NSMenuItem("Media Services"));
+
 			this.AddItem(this.iTunes);
 			this.AddItem(this.spotify);
 			this.AddItem(this.vlc);
+
+			this.AddItem(NSMenuItem.SeparatorItem);
 
 			//this.quit = new NSMenuItem("Quit", new System.EventHandler(
 			//	(o, e) => {

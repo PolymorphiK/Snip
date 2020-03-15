@@ -1,5 +1,4 @@
 ﻿namespace Winter.OSX.Controllers {
-	using System.Diagnostics;
 	using Views.SystemStatusbar;
 	using MediaPlayers;
 
@@ -17,10 +16,8 @@
 			this.snipMenu.ITunes.Target = this.snipMenu.Spotify.Target = this.snipMenu.VLC.Target = this;
 		}
 
-		[Foundation.Export("OniTunesSelected")]
+		[Foundation.Export(Exports.iTunesSelected)]
 		void OniTunesSelected() {
-			Debug.WriteLine("OniTunesSelected");
-
 			this.current?.Unload();
 
 			bool state = this.snipMenu.ITunes.State == AppKit.NSCellStateValue.On;
@@ -40,19 +37,15 @@
 			this.snipMenu.Spotify.State = this.snipMenu.VLC.State = AppKit.NSCellStateValue.Off;
 		}
 
-		[Foundation.Export("OnSpotifySelected")]
+		[Foundation.Export(Exports.SpotifySelected)]
 		void OnSpotifySelected() {
-			Debug.WriteLine("OnSpotifySelected");
-
 			this.snipMenu.Spotify.State = AppKit.NSCellStateValue.On;
 
 			this.snipMenu.ITunes.State = this.snipMenu.VLC.State = AppKit.NSCellStateValue.Off;
 		}
 
-		[Foundation.Export("OnVLCSelected")]
+		[Foundation.Export(Exports.VLCSelected)]
 		void OnVLCSelected() {
-			Debug.WriteLine("OnVLCSelected");
-
 			this.snipMenu.VLC.State = AppKit.NSCellStateValue.On;
 
 			this.snipMenu.Spotify.State = this.snipMenu.ITunes.State = AppKit.NSCellStateValue.Off;
