@@ -83,4 +83,4 @@ Releases
 ===
 None (so far)
 
-For the latest on Snip.OSX see [Snip.OSX](https://github.com/PolymorphiK/Snip)
+For the latest on Snip.OSX see [Snip.OSX](https://github.com/PolymorphiK/Snip/tree/snip-osx-port)
