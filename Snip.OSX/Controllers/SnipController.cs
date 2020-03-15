@@ -1,9 +1,11 @@
 ﻿namespace Winter.OSX.Controllers {
 	using System.Diagnostics;
 	using Views.SystemStatusbar;
+	using MediaPlayers;
 
 	public class SnipController : Foundation.NSObject {
-		private SnipMenu snipMenu;
+		private SnipMenu snipMenu = null;
+		private MediaPlayer current = null;
 
 		public SnipController(SnipMenu snipMenu) {
 			this.snipMenu = snipMenu;
@@ -19,7 +21,21 @@
 		void OniTunesSelected() {
 			Debug.WriteLine("OniTunesSelected");
 
-			this.snipMenu.ITunes.State = AppKit.NSCellStateValue.On;
+			this.current?.Unload();
+
+			bool state = this.snipMenu.ITunes.State == AppKit.NSCellStateValue.On;
+
+			if(state) {
+				this.snipMenu.ITunes.State = AppKit.NSCellStateValue.Off;
+
+				this.current = null;
+			} else {
+				this.snipMenu.ITunes.State = AppKit.NSCellStateValue.On;
+
+				this.current = new iTunes();
+
+				this.current.Load();
+			}
 
 			this.snipMenu.Spotify.State = this.snipMenu.VLC.State = AppKit.NSCellStateValue.Off;
 		}

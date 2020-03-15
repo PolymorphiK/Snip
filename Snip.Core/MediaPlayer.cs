@@ -38,7 +38,7 @@ namespace Winter {
             0x42, 0x60, 0x82
         };
 
-        private readonly string defaultArtworkFile = Directory.GetCurrentDirectory()+ @"\Snip_Artwork.jpg";
+        private readonly string defaultArtworkFile = Directory.GetCurrentDirectory() + System.IO.Path.DirectorySeparatorChar + @"Snip_Artwork.jpg";
 
         public bool SavedBlankImage { get; set; }
 
