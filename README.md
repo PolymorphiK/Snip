@@ -57,3 +57,30 @@ DONATIONS
 Snip is free; however, I've received a lot of requests from people wishing
 to donate. If you'd like to donate it's entirely up to you. You may donate
 here: [PayPal](https://paypal.me/thedopefish)
+
+Snip.OSX
+===
+Author: Kevin Pacheco
+GitHub: PolymorphiK
+Email:  k.pacheco@me.com
+
+I made this port using Visual Studio for Mac. I decided to fork this project over since I had the need to have this same program in OSX for my OBS recording for the club I run at Sacramento State University. If you have any questions or need any help let me know!
+
+Features
+===
+* iTunes - Snip.OSX will hook into iTunesLibrary and listen for the distributed notifications and save to a file the information about the track playing.
+* Spotify - WIP
+* VLC - WIP
+
+Roamap
+===
+* Restructure Codebase for Cross-Platform support
+* Refactor Snip.Win code to support .Net Standard Shared Project.
+* Spotify Support
+* VLC Support
+
+Releases
+===
+None (so far)
+
+For the latest on Snip.OSX see [Snip.OSX](https://github.com/PolymorphiK/Snip)
