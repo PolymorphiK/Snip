@@ -3,7 +3,7 @@
 using AppKit;
 using Foundation;
 
-namespace Snip.OSX {
+namespace Winter.OSX {
 	public partial class ViewController : NSViewController {
 		public ViewController(IntPtr handle) : base(handle) {
 		}

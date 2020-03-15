@@ -6,7 +6,7 @@
 //
 using Foundation;
 
-namespace Snip.OSX {
+namespace Winter.OSX {
 	[Register("ViewController")]
 	partial class ViewController {
 		void ReleaseDesignerOutlets() {

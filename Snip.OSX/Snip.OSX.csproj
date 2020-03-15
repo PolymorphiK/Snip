@@ -55,25 +55,26 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-16.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-16%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-32.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-32%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Snip256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Snip16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Snip32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Snip32-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Snip64.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Snip128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Snip256-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Views\" />
-    <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
+    <Folder Include="Models\" />
     <Folder Include="Views\SystemStatusbar\" />
     <Folder Include="Resources\system-tray-icons\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="MediaPlayers\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -87,6 +88,8 @@
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SystemStatusbar\SnipMenu.cs" />
+    <Compile Include="Controllers\SnipController.cs" />
+    <Compile Include="MediaPlayers\iTunes.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
@@ -98,6 +101,13 @@
     <BundleResource Include="Resources\system-tray-icons\iTunes.png" />
     <BundleResource Include="Resources\system-tray-icons\VLC.png" />
     <BundleResource Include="Resources\system-tray-icons\Snip.png" />
+    <BundleResource Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Snip.Core\Snip.Core.csproj">
+      <Project>{6146038D-A8F2-4F5F-BEA5-BABC4F115CD8}</Project>
+      <Name>Snip.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

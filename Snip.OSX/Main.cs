@@ -1,6 +1,6 @@
 ﻿using AppKit;
 
-namespace Snip.OSX {
+namespace Winter.OSX {
 	static class MainClass {
 		static void Main(string[] args) {
 			NSApplication.Init();

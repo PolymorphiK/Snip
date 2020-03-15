@@ -1,4 +1,4 @@
-﻿namespace Snip.OSX.Views.SystemStatusbar {
+﻿namespace Winter.OSX.Views.SystemStatusbar {
 	using AppKit;
 
 	/// <summary>
@@ -10,6 +10,7 @@
 		private NSMenuItem iTunes = new NSMenuItem("iTunes");
 		private NSMenuItem spotify = new NSMenuItem("Spotify");
 		private NSMenuItem vlc = new NSMenuItem("VLC");
+		private NSMenuItem settings = null;
 		private NSMenuItem quit = null;
 
 		public SnipMenu() : base(typeof(SnipMenu).Name) {
@@ -21,12 +22,17 @@
 			this.AddItem(this.spotify);
 			this.AddItem(this.vlc);
 
-			this.quit = new NSMenuItem("Quit", new System.EventHandler(
-				(o, e) => {
-					NSApplication.SharedApplication.Terminate(this);
-				}));
+			//this.quit = new NSMenuItem("Quit", new System.EventHandler(
+			//	(o, e) => {
+			//		//NSApplication.SharedApplication.Terminate(this);
+			//	}));
+
+			this.quit = new NSMenuItem("Quit");
 
 			this.AddItem(this.quit);
+
+			this.quit.Action = new ObjCRuntime.Selector("OnQuit");
+			this.quit.Target = this;
 		}
 
 		public NSMenuItem ITunes {
@@ -50,6 +56,17 @@
 		public NSMenuItem Quit {
 			get {
 				return this.quit;
+			}
+		}
+
+		[Foundation.Export("OnQuit")]
+		protected virtual void OnQuit() {
+			var alert = NSAlert.WithMessage("Snip", "OK", "Cancel", "", "Are you sure you want to quit?");
+
+			var result = alert.RunModal();
+
+			if(result == 1) {
+				NSApplication.SharedApplication.Terminate(this);
 			}
 		}
 	}
